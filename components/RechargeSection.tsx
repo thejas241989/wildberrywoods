@@ -28,6 +28,13 @@ export default function RechargeSection() {
 
   return (
     <section className="recharge-section" id="recharge">
+      {/* Decorative elements */}
+      <div className="deco-element deco-01"></div>
+      <div className="deco-element deco-02"></div>
+      <div className="deco-element deco-03"></div>
+      <div className="deco-element deco-04"></div>
+      <div className="deco-element deco-05"></div>
+      
       <div className="container">
         <h2 className={`section-title ${isVisible ? 'animate' : ''}`}>
           T o &nbsp;&nbsp; r e c h a r g e

@@ -308,7 +308,7 @@ body {
 /* Hero Section */
 .hero-title {
   font-size: clamp(1.5rem, 5vw, 4rem);
-  font-weight: 200;
+  font-weight: 500;
   letter-spacing: 0.4em;
   word-spacing: 0.8em;
   margin-bottom: 2rem;

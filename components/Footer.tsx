@@ -3,6 +3,13 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <footer className="footer" id="contact">
+      {/* Decorative elements */}
+      <div className="deco-element deco-01"></div>
+      <div className="deco-element deco-02"></div>
+      <div className="deco-element deco-03"></div>
+      <div className="deco-element deco-04"></div>
+      <div className="deco-element deco-05"></div>
+      
       <div className="container">
         <div className="footer-content">
           <div className="footer-brand">

@@ -66,6 +66,13 @@ export default function AmenitiesSection() {
 
   return (
     <section className="amenities-section" id="amenities">
+      {/* Decorative elements */}
+      <div className="deco-element deco-01"></div>
+      <div className="deco-element deco-02"></div>
+      <div className="deco-element deco-03"></div>
+      <div className="deco-element deco-04"></div>
+      <div className="deco-element deco-05"></div>
+      
       <div className="container">
         <h2 className="section-title animate">
           A m e n i t i e s

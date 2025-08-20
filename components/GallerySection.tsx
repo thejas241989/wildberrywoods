@@ -15,6 +15,13 @@ const galleryImages = [
 export default function GallerySection() {
   return (
     <section className="gallery-section" id="gallery">
+      {/* Decorative elements */}
+      <div className="deco-element deco-01"></div>
+      <div className="deco-element deco-02"></div>
+      <div className="deco-element deco-03"></div>
+      <div className="deco-element deco-04"></div>
+      <div className="deco-element deco-05"></div>
+      
       <div className="container">
         <h2 className="section-title animate">
           G a l l e r y

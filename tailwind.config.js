@@ -7,12 +7,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#1a1a1a',
+        'primary-dark': '#1a3a2e',
         'text-light': '#ffffff',
-        'text-gray': '#cccccc',
-        'accent-gold': '#d4af37',
-        'bg-dark': '#0d0d0d',
-        'bg-section': '#111111',
+        'text-gray': '#e8f5e8',
+        'accent-green': '#4a7c59',
+        'accent-light-green': '#90ee90',
+        'bg-dark': '#0f2027',
+        'bg-section': '#16423c',
+        'nature-green': '#2d5a3d',
+        'forest-green': '#1b4332',
+        'mint-green': '#b8f2b8',
       },
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],

@@ -7,6 +7,7 @@ import GallerySection from '../components/GallerySection'
 import AttractionsSection from '../components/AttractionsSection'
 import Footer from '../components/Footer'
 import Preloader from '../components/Preloader'
+import BackToTop from '../components/BackToTop'
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
         </main>
         
         <Footer />
+        <BackToTop />
       </div>
     </>
   )

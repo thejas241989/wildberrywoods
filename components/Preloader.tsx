@@ -1,45 +1,52 @@
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
-export default function Preloader() {
-  const [isLoaded, setIsLoaded] = useState(false)
+const Preloader = () => {
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const handleLoad = () => {
-      document.body.classList.add('loaded')
-      setIsLoaded(true)
-    }
+    const hidePreloader = () => {
+      setIsVisible(false);
+    };
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        handleLoad()
+    // Minimum 3 seconds display time
+    const minTime = setTimeout(() => {
+      if (document.readyState === 'complete') {
+        hidePreloader();
+      } else {
+        const handleLoad = () => {
+          hidePreloader();
+          window.removeEventListener('load', handleLoad);
+        };
+        window.addEventListener('load', handleLoad);
       }
-    }
+    }, 3000);
 
-    window.addEventListener('load', handleLoad)
-    document.addEventListener('keydown', handleKeyDown)
-
-    // Auto-hide after 3 seconds
-    const timer = setTimeout(handleLoad, 3000)
-
+    // Cleanup function
     return () => {
-      window.removeEventListener('load', handleLoad)
-      document.removeEventListener('keydown', handleKeyDown)
-      clearTimeout(timer)
-    }
-  }, [])
+      clearTimeout(minTime);
+    };
+  }, []);
 
-  if (isLoaded) return null
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div id="preloader">
-      <Image 
-        src="/logo1.svg" 
-        alt="Wild Berry Wood logo" 
-        width={140}
-        height={140}
-        className="preloader-logo" 
-      />
+      <div className="preloader-container">
+        <Image
+          src="/logo1.svg"
+          alt="Wild Berry Wood"
+          width={120}
+          height={120}
+          className="preloader-logo"
+          priority
+        />
+        <div className="preloader-spinner"></div>
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default Preloader;

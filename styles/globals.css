@@ -760,28 +760,36 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-dark);
+  background: #ffffff;
   z-index: 3000;
 }
 
+.preloader-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .preloader-logo {
-  width: 140px;
-  height: 140px;
-  animation: preloader-spin 3s linear forwards;
+  width: 120px;
+  height: 120px;
+  z-index: 3001;
 }
 
-@keyframes preloader-spin {
-  0% { transform: rotate(0deg) scale(0.95); opacity: 0; }
-  20% { opacity: 1; transform: rotate(72deg) scale(1.05); }
-  50% { transform: rotate(180deg) scale(0.98); }
-  80% { transform: rotate(300deg) scale(1.02); }
-  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+.preloader-spinner {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 3px solid transparent;
+  border-top: 3px solid #d4af37;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
 }
 
-body.loaded #preloader {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes fadeInUp {

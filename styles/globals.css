@@ -36,6 +36,92 @@ body {
   padding: 0;
 }
 
+/* Hero Parallax Slider */
+.hero-swiper-wrapper {
+  width: 100%;
+  height: 78vh;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.hero-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* background layer controlled by parallax */
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* overlay so text is readable */
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.56));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* slide content */
+.slide-content {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.slide-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.slide-sub {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+}
+
+/* Swiper nav/pagination tweaks */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  --swiper-navigation-size: 44px;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.4));
+  z-index: 5;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.7);
+  opacity: 1;
+  z-index: 5;
+}
+
 /* Header Styles */
 .header {
   min-height: 100vh;
@@ -441,10 +527,10 @@ body {
 
 /* Section Styles */
 .section-title {
-  font-size: 2.5rem;
+  font-size: 1.848rem;
   font-weight: 200;
-  letter-spacing: -0.3em;
-  word-spacing: 1em;
+  letter-spacing: 0.1em;
+  word-spacing: 0.2em;
   text-align: center;
   margin-bottom: 4rem;
   text-transform: uppercase;
@@ -458,13 +544,15 @@ body {
   transform: translateY(0);
 }
 
-/* Recharge Section */
+/* Recharge Section - Resort Layout */
 .recharge-section {
   padding: 4rem 0 6rem;
-  background-color: #ffffff;
+  background: linear-gradient(rgba(245, 245, 245, 0.7), rgba(245, 245, 245, 0.7)),
+              url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8c5b8' fill-opacity='0.25'%3E%3Cpath d='M20 20c8-8 8-8 16 0s8 8 0 16-8 8-16 0-8-8 0-16zm40 40c8-8 8-8 16 0s8 8 0 16-8 8-16 0-8-8 0-16zm0-40c8-8 8-8 16 0s8 8 0 16-8 8-16 0-8-8 0-16zm-40 40c8-8 8-8 16 0s8 8 0 16-8 8-16 0-8-8 0-16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
   position: relative;
   z-index: 5;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(74, 124, 89, 0.2);
 }
 
 .recharge-section::before {
@@ -473,44 +561,211 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 2px;
+  width: 150px;
+  height: 3px;
   background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
 }
 
-.recharge-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.recharge-text p {
-  font-size: 1rem;
-  line-height: 2;
-  margin-bottom: 2rem;
-  letter-spacing: 0.2em;
-  font-weight: 300;
-  color: #333333;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s ease-out;
-}
-
-.recharge-text p.animate {
-  opacity: 1;
-  transform: translateY(0);
+.recharge-section::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 1px;
+  background: var(--accent-green);
+  opacity: 0.5;
 }
 
 .recharge-section .section-title {
   color: #333333;
+  margin-bottom: 4rem;
 }
 
-.main-image {
+.resort-container {
   width: 100%;
-  height: auto;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.resort-layout {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 0;
+  background-color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.resort-image-container {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-80px) scale(0.95);
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.resort-image-container.animate {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.resort-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+  transform: scale(1.1);
+  transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.resort-image-container.animate .resort-image {
+  transform: scale(1);
+}
+
+/* Ensure Next.js Image wrapper has no spacing */
+.resort-image-container > span {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Video specific styles */
+.resort-image video,
+video.resort-image {
+  background: transparent;
+}
+
+.resort-content {
+  background-color: #e8e8e8;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(80px) translateY(30px);
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+  height: 350px;
+}
+
+.resort-content.animate {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.resort-text {
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
+}
+
+.resort-content.animate .resort-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resort-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666666;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+
+.read-story-btn {
+  background: none;
+  border: none;
+  color: #8ab893;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  align-self: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, color 0.3s ease, transform 0.3s ease;
+}
+
+.resort-content.animate .read-story-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.read-story-btn:hover {
+  color: var(--nature-green);
+  transform: translateX(5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .recharge-section {
+    padding: 4rem 0;
+  }
+  
+  .resort-container {
+    padding: 0 2rem;
+  }
+  
+  .resort-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .resort-image-container {
+    height: 300px;
+  }
+  
+  .resort-content {
+    padding: 3rem 2rem;
+  }
+  
+  .resort-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resort-container {
+    padding: 0 1rem;
+  }
+  
+  .resort-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .resort-title {
+    font-size: 1.5rem;
+  }
 }
 
 /* Amenities Section */
@@ -1345,9 +1600,9 @@ body {
   }
   
   .section-title {
-    font-size: 2rem;
-    letter-spacing: -0.25em;
-    word-spacing: 0.8em;
+    font-size: 1.4784rem;
+    letter-spacing: 0.05em;
+    word-spacing: 0.15em;
   }
   
   .hero-title {

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 
 export default function RechargeSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const imageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,25 +38,42 @@ export default function RechargeSection() {
       
       <div className="container">
         <h2 className={`section-title ${isVisible ? 'animate' : ''}`}>
-          T o &nbsp;&nbsp; r e c h a r g e
+          TO REJUVENATE
         </h2>
-        <div className="recharge-content">
-          <div className="recharge-text">
-            <p className={isVisible ? 'animate' : ''}>
-              T h i s  s u p e r b  h o m e  s i t s  o n  a n  e x c e p t i o n a l  t r a c t  o f  l a n d  b e t w e e n  m o u n t a i n  a n d  r i v e r ,  i n  o n e  o f  t h e  l o v e l i e s t  t o w n s  i n  Q u é b e c .  O f f e r i n g  b r e a t h t a k i n g  v i e w s  o f  t h e  S t .  L a w r e n c e  R i v e r ,  I l e - a u x - C o u d r e s  a n d  L e s  É b o u l e m e n t s  v i l l a g e ,  h e r e  y o u  c a n  a d m i r e  t h e  m o s t  b e a u t i f u l  s u n s e t s  i n  Q u e b e c  w h i l e  r e l a x i n g  a r o u n d  t h e  f i r e p l a c e  o r  i n  t h e  s p a .
-            </p>
-            <p className={isVisible ? 'animate' : ''}>
-              L o c a t e d  i n  o n e  o f  t h e  m o s t  b e a u t i f u l  v i l l a g e s  i n  Q u e b e c ,  t h i s  s u p e r b  v i l l a  i s  a  r e s i d e n c e  b u i l t  o n  e x c e p t i o n a l  l a n d  b e t w e e n  m o u n t a i n  a n d  r i v e r .
-            </p>
-          </div>
-          <div className="recharge-images">
+      </div>
+      
+      <div className="resort-container">
+        <div className="resort-layout">
+          {/* Left side - Image */}
+          <div ref={imageRef} className={`resort-image-container ${isVisible ? 'animate' : ''}`}>
             <Image
-              src="https://images.prismic.io/villa-canopee/917f3cc5-52aa-43f2-820d-4603752343c3_maison-villa-canopee.jpg?auto=compress,format&rect=0,0,1200,1200&w=1000&h=1000"
-              alt="Wild Berry Wood exterior"
-              width={1000}
-              height={1000}
-              className="main-image"
+              src="/aboutus2.png"
+              alt="Wild Berry Wood aerial view"
+              fill
+              className="resort-image"
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center center'
+              }}
+              priority
             />
+          </div>
+
+          {/* Right side - Content */}
+          <div className={`resort-content ${isVisible ? 'animate' : ''}`}>
+            <div className="resort-text">
+              <p>
+                Wild Berry Wood is a boutique property with tranquil valley views in the rural village of Charlevoix, just outside of Quebec City.
+              </p>
+              
+              <p>
+                It is attuned to the surrounding environment through a thoughtful design that respects Quebec&apos;s rich artistry and cultural heritage.
+              </p>
+            </div>
+            
+            <button className="read-story-btn">
+              READ THE STORY
+            </button>
           </div>
         </div>
       </div>

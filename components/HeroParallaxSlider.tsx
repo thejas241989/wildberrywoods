@@ -16,7 +16,7 @@ export default function HeroParallaxSlider() {
         speed={1000}
         loop
         parallax
-        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         className="hero-swiper"

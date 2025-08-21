@@ -1,10 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Parallax, Autoplay, Pagination, Navigation } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/parallax'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
+import 'swiper/bundle'
+import 'swiper/css/bundle'
 
 const slides = [
   { src: '/aboutus2.png', title: 'Peaceful Retreat', subtitle: 'Find calm in nature' },
@@ -16,7 +13,6 @@ export default function HeroParallaxSlider() {
   return (
     <section className="hero-swiper-wrapper" aria-label="Homepage hero slider">
       <Swiper
-        modules={[Parallax, Autoplay, Pagination, Navigation]}
         speed={1000}
         loop
         parallax

@@ -1,14 +1,70 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
+  useEffect(() => {
+    if (videoRef.current && videoLoaded) {
+      const video = videoRef.current
+      
+      // Optimize video for smooth looping
+      video.playbackRate = 1.0 // Ensure normal playback speed
+      
+      // Handle seamless looping
+      const handleTimeUpdate = () => {
+        // Smooth transition near the end
+        if (video.duration - video.currentTime < 0.05) {
+          video.style.filter = 'brightness(0.98)'
+        } else {
+          video.style.filter = 'brightness(1)'
+        }
+      }
+
+      video.addEventListener('timeupdate', handleTimeUpdate)
+
+      return () => {
+        video.removeEventListener('timeupdate', handleTimeUpdate)
+      }
+    }
+  }, [videoLoaded])
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true)
+    
+    // Additional optimization for smooth playback
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.0
+    }
+  }
+
   return (
-    <header id="home" className="header">
+    <header id="home" className={`header ${videoLoaded ? 'video-loaded' : ''}`}>
+      {/* Video Background */}
+      <video 
+        ref={videoRef}
+        className="hero-video" 
+        autoPlay 
+        muted 
+        loop
+        playsInline
+        preload="metadata"
+        onLoadedData={handleVideoLoad}
+        onCanPlay={handleVideoLoad}
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+        {/* Fallback for browsers that don't support video */}
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Video Overlay */}
+      <div className="video-overlay"></div>
+
       {/* Decorative elements */}
       <div className="deco-element deco-01"></div>
       <div className="deco-element deco-02"></div>

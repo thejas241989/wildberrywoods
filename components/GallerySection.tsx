@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import Image from 'next/image'
+import Lightbox from './Lightbox'
 
 const galleryImages = [
   'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=400&h=400&fit=crop',
@@ -13,6 +15,26 @@ const galleryImages = [
 ]
 
 export default function GallerySection() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const previousImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
   return (
     <section className="gallery-section" id="gallery">
       {/* Decorative elements */}
@@ -35,11 +57,22 @@ export default function GallerySection() {
                 width={400}
                 height={420}
                 className="gallery-image"
+                onClick={() => openLightbox(index)}
+                style={{ cursor: 'pointer' }}
               />
             </div>
           ))}
         </div>
       </div>
+
+      <Lightbox
+        images={galleryImages}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        onNext={nextImage}
+        onPrevious={previousImage}
+      />
     </section>
   )
 }

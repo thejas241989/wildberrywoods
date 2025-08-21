@@ -25,7 +25,7 @@ export default function Home() {
         <Navigation />
         <HeroSection />
         
-        <main className="main-content">
+        <main className="main-content" id="main-content">
           <RechargeSection />
           <AmenitiesSection />
           <GallerySection />

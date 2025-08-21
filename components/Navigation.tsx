@@ -119,15 +119,17 @@ export default function Navigation() {
           ×
         </button>
 
-        <div className="relative h-full flex flex-col justify-center items-center space-y-8">
+        <div className="relative h-full flex flex-col justify-center items-center space-y-6">
           {navItems.map((item, index) => (
             <a
               key={item.label}
               href={item.href}
               ref={index === 0 ? firstLinkRef : undefined}
               onClick={closeMenu}
-              className="text-2xl lg:text-3xl text-white font-light tracking-wider uppercase hover:scale-105 transition-transform duration-200"
+              className="text-white font-light tracking-wider uppercase hover:scale-105 transition-transform duration-200"
               style={{
+                fontSize: '1.000rem',
+                lineHeight: '1.25rem',
                 animationDelay: isMobileMenuOpen ? `${index * 0.1}s` : '0s',
                 animation: isMobileMenuOpen ? 'fadeInUp 0.6s ease-out forwards' : 'none'
               }}

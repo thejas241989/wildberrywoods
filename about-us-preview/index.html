@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us Preview</title>
+    <style>
+      html,body{height:100%;margin:0}
+      body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f6f8f6;color:#102018}
+      .wrap{max-width:1000px;margin:48px auto;padding:24px}
+      .about{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;background:#fff;border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(16,32,24,0.06)}
+      .about img{width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:10px;box-shadow:0 8px 24px rgba(16,32,24,0.08);transition:transform .4s ease}
+      .about img:hover{transform:scale(1.03)}
+      .content h2{font-size:1rem;text-transform:uppercase;letter-spacing:.28em;color:#4a7c59;margin:0 0 8px}
+      .content h1{font-size:2rem;margin:0 0 12px;color:#0f2027}
+      .content p{color:#4b5450;line-height:1.8}
+      .cta{margin-top:22px}
+      .btn{display:inline-block;background:linear-gradient(135deg,#4a7c59,#90ee90);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600}
+      @media(max-width:800px){.about{grid-template-columns:1fr;}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="about">
+        <div class="media"><img src="/Analyse.png" alt="About visual"/></div>
+        <div class="content">
+          <h2>About Us</h2>
+          <h1>We reconnect people with nature</h1>
+          <p>
+            Nestled within an ancient forest, our retreat offers a place to slow down and restore. We combine simple comforts with sustainable practices so you can experience nature with minimal footprint.
+          </p>
+          <div class="cta"><a class="btn" href="#">Read Our Story</a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

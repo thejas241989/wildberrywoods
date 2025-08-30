@@ -5,11 +5,15 @@ export default function RechargeSection() {
   const [isVisible, setIsVisible] = useState(false)
   const imageRef = useRef<HTMLDivElement>(null)
 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setTimeout(() => {
+            setIsVisible(true)
+          }, 5000)
+          
         }
       },
       { threshold: 0.1 }
@@ -29,13 +33,6 @@ export default function RechargeSection() {
 
   return (
     <section className="recharge-section" id="recharge">
-      {/* Decorative elements */}
-      <div className="deco-element deco-01"></div>
-      <div className="deco-element deco-02"></div>
-      <div className="deco-element deco-03"></div>
-      <div className="deco-element deco-04"></div>
-      <div className="deco-element deco-05"></div>
-      
       <div className="container">
         <h2 className={`section-title ${isVisible ? 'animate' : ''}`}>
           TO REJUVENATE
@@ -53,7 +50,8 @@ export default function RechargeSection() {
               className="resort-image"
               style={{
                 objectFit: 'cover',
-                objectPosition: 'center center'
+                objectPosition: 'center center',
+                animationDelay: '0.3s'
               }}
               priority
             />

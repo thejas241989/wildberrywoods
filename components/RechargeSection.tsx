@@ -10,13 +10,17 @@ export default function RechargeSection() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true)
-          }, 5000)
-          
+          // Trigger animation immediately when section comes into view
+          setIsVisible(true)
+        } else {
+          // Reset animation when section goes out of view
+          setIsVisible(false)
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.2, // Trigger when 20% of section is visible
+        rootMargin: '0px 0px -100px 0px' // Start animation slightly before section is fully in view
+      }
     )
 
     const section = document.getElementById('recharge')

@@ -10,33 +10,33 @@ interface Amenity {
 const amenities: Amenity[] = [
   {
     id: 1,
-    name: 'Fireplace',
-    image: 'https://images.prismic.io/villa-canopee/a0720282-3b2d-46ad-ab9b-8a41885a7a17_1-foyer-exterieur.jpg?auto=compress,format&rect=0,0,883,1224&w=440&h=610'
+    name: 'Cozy Fireplace',
+    image: '/Slider1.png'
   },
   {
     id: 2,
-    name: 'River view',
-    image: 'https://images.prismic.io/villa-canopee/1262259d-e308-4c59-a760-61af9dd39455_2-vue-fleuve.jpg?auto=compress,format&rect=0,0,883,1224&w=440&h=610'
+    name: 'Forest Views',
+    image: '/Slider2.png'
   },
   {
     id: 3,
-    name: 'Spa',
-    image: 'https://images.prismic.io/villa-canopee/c2b8b8b3-8c2f-4f4e-9d5b-1234567890ab_3-spa.jpg?auto=compress,format&rect=0,0,883,1224&w=440&h=610'
+    name: 'Relaxation Area',
+    image: '/Slider3.png'
   },
   {
     id: 4,
-    name: 'Kitchen',
-    image: 'https://images.prismic.io/villa-canopee/d3c9c9c4-9d3f-5f5f-ae6c-2345678901bc_4-cuisine.jpg?auto=compress,format&rect=0,0,883,1224&w=440&h=610'
+    name: 'Modern Kitchen',
+    image: '/Slider4.png'
   },
   {
     id: 5,
-    name: 'Bedroom',
-    image: 'https://images.prismic.io/villa-canopee/e4dadad5-ae4f-6f6f-bf7d-3456789012cd_5-chambre.jpg?auto=compress,format&rect=0,0,883,1224&w=440&h=610'
+    name: 'Comfortable Bedroom',
+    image: '/aboutus1.png'
   },
   {
     id: 6,
-    name: 'Living Room',
-    image: 'https://images.prismic.io/villa-canopee/f5ebebeb-bf5f-7f7f-cf8e-456789abcdef_6-salon.jpg?auto=compress,format&rect=0,0,883,1224&w=440&h=610'
+    name: 'Living Space',
+    image: '/aboutus2.png'
   }
 ]
 

@@ -24,7 +24,8 @@ const Footer = () => {
           
           <div className="footer-contact">
             <h4>C o n t a c t  u s :</h4>
-            <p>H é b é r g e m e n t  C h a r l e v o i x</p>
+            <p>W i l d  B e r r y  W o o d</p>
+            <p>C h a r l e v o i x,  Q u e b e c</p>
             <a href="tel:+14184355107" className="phone-link">
               4 1 8 4 3 5 - 5 1 0 7
             </a>

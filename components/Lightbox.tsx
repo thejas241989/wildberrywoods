@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 interface LightboxProps {
@@ -12,6 +12,8 @@ interface LightboxProps {
 
 const Lightbox = ({ images, currentIndex, isOpen, onClose, onNext, onPrevious }: LightboxProps) => {
   const lightboxRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -52,6 +54,33 @@ const Lightbox = ({ images, currentIndex, isOpen, onClose, onNext, onPrevious }:
     }
   }, [isOpen]);
 
+  // Touch/swipe functionality
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && images.length > 1) {
+      onNext();
+    }
+    if (isRightSwipe && images.length > 1) {
+      onPrevious();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -64,7 +93,13 @@ const Lightbox = ({ images, currentIndex, isOpen, onClose, onNext, onPrevious }:
       aria-modal="true"
       aria-label="Gallery lightbox"
     >
-      <div className="lightbox-container" onClick={(e) => e.stopPropagation()}>
+      <div 
+        className="lightbox-container" 
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {/* Close button */}
         <button 
           className="lightbox-close"

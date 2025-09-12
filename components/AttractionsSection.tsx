@@ -29,18 +29,13 @@ const AttractionsSection = () => {
           A t t r a c t i o n s
         </h2>
         <p className="attractions-intro">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Discover the natural beauty and rich culture of Charlevoix region. Wild Berry Wood is perfectly positioned to explore the best that Quebec has to offer, from charming villages to breathtaking mountain landscapes.
         </p>
         
         <div className="attractions-grid">
           <div className={`attraction-category ${isVisible ? 'animate' : ''}`}>
             <div className="category-icon">
-              <Image 
-                src="https://villa-canopee.cdn.prismic.io/villa-canopee/c83407f4-f3bb-4668-a9c7-41e76e62ce18_icon-villes.svg" 
-                alt="Cities icon"
-                width={60}
-                height={60}
-              />
+              <div style={{ fontSize: '60px', color: '#4a7c59' }}>🏘️</div>
             </div>
             <h3>N e a r b y  c i t i e s</h3>
             <ul>
@@ -51,12 +46,7 @@ const AttractionsSection = () => {
           
           <div className={`attraction-category ${isVisible ? 'animate' : ''}`}>
             <div className="category-icon">
-              <Image 
-                src="https://villa-canopee.cdn.prismic.io/villa-canopee/0e4a2b12-e7b2-4376-8ec1-c538dc9d6b80_icon-decouvertes.svg" 
-                alt="Activities icon"
-                width={60}
-                height={60}
-              />
+              <div style={{ fontSize: '60px', color: '#4a7c59' }}>🎯</div>
             </div>
             <h3>A c t i v i t i e s  &  D i s c o v e r i e s</h3>
             <ul>
@@ -68,12 +58,7 @@ const AttractionsSection = () => {
           
           <div className={`attraction-category ${isVisible ? 'animate' : ''}`}>
             <div className="category-icon">
-              <Image 
-                src="https://villa-canopee.cdn.prismic.io/villa-canopee/2331bf73-8968-45e4-b1fb-460dfeab4b78_icon-montagnes.svg" 
-                alt="Mountains icon"
-                width={60}
-                height={60}
-              />
+              <div style={{ fontSize: '60px', color: '#4a7c59' }}>🏔️</div>
             </div>
             <h3>M o u n t a i n s  &  h i k e s</h3>
             <ul>

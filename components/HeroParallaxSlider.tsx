@@ -116,6 +116,7 @@ export default function HeroParallaxSlider() {
                   muted
                   controls={false}
                 />
+                <div className="slide-overlay"></div>
               </>
             ) : (
               <>
@@ -124,6 +125,7 @@ export default function HeroParallaxSlider() {
                   style={{ backgroundImage: `url(${s.src})` }}
                   data-swiper-parallax="-30%"
                 />
+                <div className="slide-overlay"></div>
               </>
             )}
             
